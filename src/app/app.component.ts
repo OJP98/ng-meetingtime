@@ -9,6 +9,4 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'ng-meetingtime';
-}
+export class AppComponent {}
