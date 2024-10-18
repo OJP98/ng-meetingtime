@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./src/**/*.{html,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      flexGrow: {
+        2: '2',
+      },
+    },
   },
   plugins: [require('daisyui')],
   daisyui: {
