@@ -1,0 +1,30 @@
+<div class="flex w-full flex-col gap-1 rounded-xl md:gap-0 lg:flex-row">
+  <div class="flex flex-nowrap gap-1 md:gap-2">
+    <!-- Day picker -->
+    <app-select
+      [ariaLabel]="'Select day'"
+      [id]="'day-picker'"
+      [data]="daysSelectData"
+    />
+
+    <!-- Month picker -->
+    <app-select
+      [ariaLabel]="'Select month'"
+      [id]="'month-picker'"
+      [data]="monthsSelectData"
+    />
+
+    <!-- Year picker -->
+    <app-select
+      [ariaLabel]="'Select year'"
+      [id]="'year-picker'"
+      [data]="yearsSelectData"
+    />
+
+  </div>
+  <div class="divider my-0 lg:divider-horizontal"></div>
+  <div class="flex gap-1 md:gap-2 lg:self-center">
+    <button class="btn btn-outline btn-accent btn-sm">🗓️</button>
+    <button id="today-button" class="btn btn-outline btn-primary btn-sm">Today</button>
+  </div>
+</div>

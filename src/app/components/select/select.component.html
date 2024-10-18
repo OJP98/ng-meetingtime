@@ -1,0 +1,22 @@
+<label>
+  @if (!!label) {
+    <div class="label">
+      <span class="label-text">{{ label }}</span>
+    </div>
+  }
+  <select
+    #select
+    (change)="onSelected()"
+    [ariaLabel]="ariaLabel"
+    [id]="id"
+    class="select select-bordered"
+  >
+    @for(item of data; track $index) {
+      @if (item.selected) {
+        <option [ngValue]="item.key" selected>{{ item.value }}</option>
+      } @else {
+        <option [ngValue]="item.key">{{ item.value }}</option>
+      }
+    }
+  </select>
+</label>
