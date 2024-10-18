@@ -1,7 +1,10 @@
 <div class="flex w-full flex-col gap-1 rounded-xl md:gap-0 lg:flex-row">
-  <div class="flex flex-nowrap gap-1 md:gap-2">
+  <div 
+    class="flex flex-nowrap gap-1 md:gap-2" >
     <!-- Day picker -->
     <app-select
+      [control]="control"
+      [controlName]="dayFormControlName"
       [ariaLabel]="'Select day'"
       [id]="'day-picker'"
       [data]="daysSelectData"
@@ -9,6 +12,8 @@
 
     <!-- Month picker -->
     <app-select
+      [control]="control"
+      [controlName]="monthFormControlName"
       [ariaLabel]="'Select month'"
       [id]="'month-picker'"
       [data]="monthsSelectData"
@@ -16,6 +21,8 @@
 
     <!-- Year picker -->
     <app-select
+      [control]="control"
+      [controlName]="yearFormControlName"
       [ariaLabel]="'Select year'"
       [id]="'year-picker'"
       [data]="yearsSelectData"

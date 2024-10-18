@@ -1,21 +1,8 @@
 <app-header></app-header>
-<div class="mx-auto mt-28 max-w-7xl px-3 sm:px-12 md:px-16 lg:px-28">
-  <main class="main">
-    <div class="grid-container">
-      <!-- Banner / Slogan -->
-      <div class="md:col-span-5">
-        <p>What's the best time for a meeting? Let's find out! 🚀</p>
-      </div>
-
-      <!-- Date Picker -->
-      <div class="flex-col md:col-span-3 md:row-span-2 md:w-4/5">
-        <p class="font-bold text-primary">Select a date</p>
-        <app-date-picker></app-date-picker>
-      </div>
-
-      <!-- Location Picker -->
-    </div>
-  </main>
-</div>
+<main class="main">
+  <div class="mx-auto mt-28 max-w-7xl px-3 sm:px-12 md:px-16 lg:px-28">
+    <app-form-view></app-form-view>
+  </div>
+</main>
 
 <router-outlet />
