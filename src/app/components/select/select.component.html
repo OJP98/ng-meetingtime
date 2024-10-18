@@ -4,14 +4,14 @@
   <label>
     @if (!!label) {
       <div class="label">
-        <span class="label-text">{{ label }}</span>
+        <span class="label-text text-xs">{{ label }}</span>
       </div>
     }
     <select
       [formControlName]="controlName"
       [ariaLabel]="ariaLabel"
       [id]="id"
-      class="select select-bordered"
+      class="select select-bordered w-full"
     >
       @for(item of data; track $index) {
         <option [ngValue]="item.key">{{ item.value }}</option>

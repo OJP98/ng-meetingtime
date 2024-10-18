@@ -20,6 +20,14 @@ export class DatePickerComponent {
 
   constructor(private dateSrvc: DateService) {}
 
+  setToday(): void {
+    this.control.setValue({
+      day: this.dateSrvc.todayDay,
+      month: this.dateSrvc.todayMonth,
+      year: this.dateSrvc.todayYear,
+    });
+  }
+
   get daysSelectData(): ISelectArrData[] {
     return this.dateSrvc.daysInMonthArray().map((day) => ({
       key: day,
