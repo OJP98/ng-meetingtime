@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SelectComponent } from '@components/select/select.component';
 import { DateService } from '@services/date.service';
 import { ISelectArrData } from '@interfaces/selectArrData.interface';
@@ -11,14 +11,23 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './date-picker.component.html',
   styleUrl: './date-picker.component.scss',
 })
-export class DatePickerComponent {
+export class DatePickerComponent implements OnInit {
   public dayFormControlName = 'day';
   public monthFormControlName = 'month';
   public yearFormControlName = 'year';
+  public daysSelectData: ISelectArrData[] = [];
 
   @Input() control!: FormGroup;
 
   constructor(private dateSrvc: DateService) {}
+
+  ngOnInit(): void {
+    this.daysSelectData = this.getAvailableDays();
+    this.control.statusChanges.subscribe(() => {
+      this.setAvailableDays();
+      this.validateSelectedDay();
+    });
+  }
 
   setToday(): void {
     this.control.setValue({
@@ -28,11 +37,26 @@ export class DatePickerComponent {
     });
   }
 
-  get daysSelectData(): ISelectArrData[] {
-    return this.dateSrvc.daysInMonthArray().map((day) => ({
+  setAvailableDays(): void {
+    this.daysSelectData = this.getAvailableDays();
+  }
+
+  getAvailableDays(): ISelectArrData[] {
+    const { month, year } = this.control.value;
+    return this.dateSrvc.daysInMonthArray(month, year).map((day) => ({
       key: day,
       value: day.toString(),
     }));
+  }
+
+  validateSelectedDay(): void {
+    const { day, month, year } = this.control.value;
+    if (this.daysSelectData.findIndex((aDay) => aDay.key === day) === -1)
+      this.control.setValue({
+        day: 1,
+        month,
+        year,
+      });
   }
 
   get monthsSelectData(): ISelectArrData[] {

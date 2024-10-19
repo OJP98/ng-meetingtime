@@ -1,13 +1,11 @@
-<div id="search" class="dropdown w-full">
-  <label class="input input-bordered flex w-full items-center lg:w-[485px]">
+<div id="search" class="dropdown dropdown-top sm:dropdown-bottom w-full">
+  <label class="input input-bordered flex w-full items-center">
     <input
       id="search-input"
       tabindex="0"
       type="text"
       placeholder="Search your city..."
       class="grow"
-      onkeyup="filterItems()"
-      onclick="filterItems()"
     />
     <svg viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 opacity-70">
       <path
@@ -17,7 +15,7 @@
     </svg>
   </label>
   <div
-    class="dropdown-content w-full rounded-box bg-base-200 shadow lg:w-[485px]"
+    class="dropdown-content w-full rounded-box bg-base-200 shadow"
   >
     <ul class="menu menu-dropdown" tabindex="0">
       <app-location-button city="Guatemala" flag="🏁" />

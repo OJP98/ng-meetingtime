@@ -37,9 +37,12 @@ export class DateService {
     return new Date(year, month + 1, 0).getDate();
   };
 
-  daysInMonthArray = () => {
+  daysInMonthArray = (
+    month: number = this.todayMonth,
+    year: number = this.todayYear
+  ) => {
     return Array.from(
-      { length: this.daysInMonth(this.todayMonth, this.todayYear) },
+      { length: this.daysInMonth(month, year) },
       (_, i) => i + 1
     );
   };
