@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LocationButtonComponent } from '../location-button/location-button.component';
+import { LocationButtonComponent } from '@components/location-button/location-button.component';
 
 @Component({
   selector: 'app-location-picker',

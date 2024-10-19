@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ISelectArrData } from '../../interfaces/selectArrData.interface';
+import { ISelectArrData } from '@interfaces/selectArrData.interface';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 

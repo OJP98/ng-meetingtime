@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { SelectComponent } from '../select/select.component';
-import { DateService } from '../../services/date.service';
-import { ISelectArrData } from '../../interfaces/selectArrData.interface';
+import { SelectComponent } from '@components/select/select.component';
+import { DateService } from '@services/date.service';
+import { ISelectArrData } from '@interfaces/selectArrData.interface';
 import { FormGroup } from '@angular/forms';
 
 @Component({

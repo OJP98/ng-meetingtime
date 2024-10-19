@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { FormViewComponent } from './views/form-view/form-view.component';
+import { HeaderComponent } from '@components/header/header.component';
+import { FormViewComponent } from '@views/form-view/form-view.component';
 
 @Component({
   selector: 'app-root',
