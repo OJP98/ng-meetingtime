@@ -13,7 +13,7 @@
       [id]="id"
       class="select select-bordered w-full"
     >
-      @for(item of data; track $index) {
+      @for(item of data; track item.key) {
         <option [ngValue]="item.key">{{ item.value }}</option>
       }
     </select>
