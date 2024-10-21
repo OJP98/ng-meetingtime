@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TCountryCode } from 'countries-list';
 
 @Component({
   selector: 'app-location-button',
@@ -9,5 +10,5 @@ import { Component, Input } from '@angular/core';
 })
 export class LocationButtonComponent {
   @Input() city!: string;
-  @Input() flag!: string;
+  @Input() iso2!: TCountryCode;
 }

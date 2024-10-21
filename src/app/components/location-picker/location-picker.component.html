@@ -1,4 +1,4 @@
-<div id="search" class="dropdown dropdown-top sm:dropdown-bottom w-full">
+<div id="search" class="dropdown w-full">
   <label class="input input-bordered flex w-full items-center">
     <input
       id="search-input"
@@ -11,15 +11,16 @@
       <path
         fill-rule="evenodd"
         d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-        clip-rule="evenodd"></path>
+        clip-rule="evenodd"
+      ></path>
     </svg>
   </label>
-  <div
-    class="dropdown-content w-full rounded-box bg-base-200 shadow"
-  >
+  <div class="dropdown-content w-full rounded-box bg-base-200 shadow max-h-96 overflow-auto">
     <ul class="menu menu-dropdown" tabindex="0">
-      <app-location-button city="Guatemala" flag="🏁" />
-      <li class="disabled" style="display: none;">
+      @for (country of countries; track country.name) {
+        <app-location-button [city]="country.name" [iso2]="country.iso2" />
+      }
+      <li class="disabled" style="display: none">
         <button>No results found</button>
       </li>
     </ul>

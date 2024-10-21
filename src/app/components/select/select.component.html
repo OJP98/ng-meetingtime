@@ -1,6 +1,4 @@
-<div
-  [formGroup]="control"
->
+<div [formGroup]="control">
   <label>
     @if (!!label) {
       <div class="label">
@@ -13,10 +11,9 @@
       [id]="id"
       class="select select-bordered w-full"
     >
-      @for(item of data; track item.key) {
+      @for (item of data; track item.key) {
         <option [ngValue]="item.key">{{ item.value }}</option>
       }
     </select>
   </label>
-
 </div>
