@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { LocationButtonComponent } from '@components/location-button/location-button.component';
-import { getCountryDataList, ICountryData } from 'countries-list';
+import { getAllCountries } from 'countries-and-timezones';
 
 @Component({
   selector: 'app-location-picker',
@@ -11,8 +11,8 @@ import { getCountryDataList, ICountryData } from 'countries-list';
   styleUrl: './location-picker.component.scss',
 })
 export class LocationPickerComponent {
-  public countries: ICountryData[];
+  public countries: unknown;
   constructor() {
-    this.countries = getCountryDataList();
+    this.countries = getAllCountries();
   }
 }
