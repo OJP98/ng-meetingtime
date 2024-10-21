@@ -17,13 +17,13 @@
   </label>
   <div class="dropdown-content w-full rounded-box bg-base-200 shadow max-h-96 overflow-auto">
     <ul class="menu menu-dropdown" tabindex="0">
-      <!-- @for (country of countries; track country.name) {
-        <app-location-button [city]="country.name" [iso2]="country.iso2" />
+      @for (city of cityTimezones; track city.name) {
+        <app-location-button [city]="city.name" [iso2]="city.country" />
       } @empty {
         <li class="disabled">
           <button>No results found</button>
         </li>
-      } -->
+      }
     </ul>
   </div>
 </div>
