@@ -28,6 +28,10 @@ export class CityTimezone {
     return this.trimRegion();
   }
 
+  public updateStatus() {
+    this.selected = !this.selected;
+  }
+
   private trimTimezoneName() {
     const rawName = this.timezoneName.split('/').slice(-1)[0];
     return rawName.replace(/_/g, ' ');

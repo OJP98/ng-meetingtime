@@ -15,13 +15,12 @@ export class LocationsContainerComponent {
 
   constructor(private timezonesSrvc: TimezonesService) {
     this.chosenLocations = [];
-    effect(() =>
-      this.chosenLocations.push(this.timezonesSrvc.selectedLocation())
+    effect(
+      () => (this.chosenLocations = this.timezonesSrvc.selectedLocations())
     );
   }
 
-  public removeSelected($event: string) {
-    this.timezonesSrvc.selectLocation($event);
-    // TODO: Remove the selected location from the chosenLocations array
+  public removeSelected(timezoneName: string) {
+    this.timezonesSrvc.removeSelectedLocation(timezoneName);
   }
 }

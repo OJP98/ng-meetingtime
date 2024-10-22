@@ -13,29 +13,37 @@ export class TimezonesService {
     '-06:00'
   );
   public locations = signal<CityTimezone[]>([]);
-  public selectedLocation = signal<CityTimezone>(this.guatemala);
+  public selectedLocations = signal<CityTimezone[]>([]);
 
   constructor() {
     this.locations.set(this.mapCityTimezones());
   }
 
-  public selectLocation(cityTimezone: string) {
-    const selected = this.FindLocation(cityTimezone);
-    if (!selected) return;
-    this.selectedLocation.set(selected);
-    this.changeSelectedStatus(selected);
+  public updateSelectedLocation(cityTimezone: string) {
+    const location = this.FindLocation(cityTimezone)!;
+    location.updateStatus();
+    this.selectedLocations().push(location);
+  }
+
+  public removeSelectedLocation(cityTimezone: string) {
+    const location = this.FindLocation(cityTimezone)!;
+    location.updateStatus();
+    const selectedLocationIndex = this.FindSelectedLocationIndex(cityTimezone);
+    this.selectedLocations().splice(selectedLocationIndex, 1);
+  }
+
+  private FindSelectedLocationIndex(cityTimezone: string) {
+    const cityIdx = this.selectedLocations().findIndex(
+      (city) => city.timezoneName === cityTimezone
+    );
+    return cityIdx;
   }
 
   private FindLocation(cityTimezone: string) {
-    const cityIdx = this.locations().findIndex(
+    const location = this.locations().find(
       (city) => city.timezoneName === cityTimezone
     );
-    if (cityIdx === -1) return null;
-    return this.locations()[cityIdx];
-  }
-
-  private changeSelectedStatus(cityTimeZone: CityTimezone) {
-    cityTimeZone.selected = !cityTimeZone.selected;
+    return location;
   }
 
   private mapCityTimezones(): CityTimezone[] {

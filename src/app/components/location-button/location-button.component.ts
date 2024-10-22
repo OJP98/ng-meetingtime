@@ -16,6 +16,8 @@ export class LocationButtonComponent {
   constructor(private timezonesService: TimezonesService) {}
 
   public selectLocation() {
-    this.timezonesService.selectLocation(this.cityTimezone.timezoneName);
+    this.timezonesService.updateSelectedLocation(
+      this.cityTimezone.timezoneName
+    );
   }
 }
