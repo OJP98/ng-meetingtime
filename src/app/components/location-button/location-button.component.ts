@@ -1,6 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { TCountryCode } from 'countries-list';
+import { CityTimezone } from '@classes/CityTimezone.class';
+import { TimezonesService } from '@services/timezones.service';
 
 @Component({
   selector: 'app-location-button',
@@ -10,6 +11,11 @@ import { TCountryCode } from 'countries-list';
   styleUrl: './location-button.component.scss',
 })
 export class LocationButtonComponent {
-  @Input() city!: string;
-  @Input() iso2!: TCountryCode;
+  @Input() cityTimezone!: CityTimezone;
+
+  constructor(private timezonesService: TimezonesService) {}
+
+  public selectLocation() {
+    this.timezonesService.selectLocation(this.cityTimezone.timezoneName);
+  }
 }

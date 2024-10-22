@@ -5,6 +5,7 @@ export class CityTimezone {
   utcOffset: number;
   utcOffsetStr: string;
   country: CountryCode;
+  selected: boolean;
 
   constructor(
     timezoneName: string,
@@ -16,6 +17,7 @@ export class CityTimezone {
     this.utcOffset = utcOffset;
     this.utcOffsetStr = utcOffsetStr;
     this.country = countries[0];
+    this.selected = false;
   }
 
   public get name() {

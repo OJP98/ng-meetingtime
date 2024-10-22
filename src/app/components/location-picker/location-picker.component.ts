@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { CityTimezone } from '@classes/CityTimezone.class';
 import { LocationButtonComponent } from '@components/location-button/location-button.component';
 import { TimezonesService } from '@services/timezones.service';
@@ -12,8 +12,12 @@ import { TimezonesService } from '@services/timezones.service';
   styleUrl: './location-picker.component.scss',
 })
 export class LocationPickerComponent {
-  public cityTimezones: CityTimezone[];
+  public locations: CityTimezone[];
+
   constructor(private timezonesService: TimezonesService) {
-    this.cityTimezones = this.timezonesService.cityTimezones;
+    this.locations = this.timezonesService.locations();
+    // effect(() => {
+    //   this.locations = this.timezonesService.locations();
+    // });
   }
 }

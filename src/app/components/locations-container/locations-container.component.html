@@ -1,4 +1,19 @@
 <div
   id="Locations-container"
   class="flex h-52 flex-row flex-wrap content-start items-start gap-x-1 gap-y-2 overflow-auto rounded-xl bg-primary-content/40 p-2"
-></div>
+>
+  @for (location of chosenLocations; track location.name) {
+    <button (click)="removeSelected(location.timezoneName)" class="btn btn-outline btn-sm">
+      {{ location.name }}
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  } @empty {
+    <p class="text-sm">No locations selected</p>
+  }
+</div>

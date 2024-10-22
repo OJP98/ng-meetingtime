@@ -17,8 +17,8 @@
   </label>
   <div class="dropdown-content w-full rounded-box bg-base-200 shadow max-h-96 overflow-auto">
     <ul class="menu menu-dropdown" tabindex="0">
-      @for (city of cityTimezones; track city.name) {
-        <app-location-button [city]="city.name" [iso2]="city.country" />
+      @for (location of locations; track location.name) {
+        <app-location-button [class.hidden]="location.selected" [cityTimezone]="location" />
       } @empty {
         <li class="disabled">
           <button>No results found</button>
@@ -27,8 +27,7 @@
     </ul>
   </div>
 </div>
-<!-- 
-<div class="flex w-full gap-1 sm:mt-2 sm:gap-2">
-  <button class="btn btn-outline btn-primary btn-sm">Search</button>
-  <button class="btn btn-outline btn-primary btn-sm">Zone</button>
-</div> -->
+
+<div class="flex w-full gap-1 sm:mt-2 sm:gap-2 items-center">
+  <button class="btn btn-xs btn-ghost">Can't find your location?</button>
+</div>

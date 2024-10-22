@@ -1,6 +1,6 @@
 <li tabindex="0">
-  <button class="flex flex-row justify-between">
-    <p>{{ city }}</p>
-    <img width="27" height="18" ngSrc="assets/svg/{{ iso2 }}.svg" alt="Flag of {{ city }}"/>
+  <button (click)="selectLocation()" class="flex flex-row justify-between">
+    <p>{{ cityTimezone.name }}</p>
+    <img width="27" height="18" ngSrc="assets/svg/{{ cityTimezone.country }}.svg" alt="Flag of {{ cityTimezone.name }}"/>
   </button>
 </li>
