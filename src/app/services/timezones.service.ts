@@ -40,10 +40,7 @@ export class TimezonesService {
   }
 
   private FindLocation(cityTimezone: string) {
-    const location = this.locations().find(
-      (city) => city.timezoneName === cityTimezone
-    );
-    return location;
+    return this.locations().find((city) => city.timezoneName === cityTimezone);
   }
 
   private mapCityTimezones(): CityTimezone[] {

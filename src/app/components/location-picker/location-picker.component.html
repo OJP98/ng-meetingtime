@@ -6,6 +6,8 @@
       type="text"
       placeholder="Search your city..."
       class="grow"
+      (keyup)="setResults($event)"
+      (focus)="setResults($event)"
     />
     <svg viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 opacity-70">
       <path
@@ -16,10 +18,15 @@
     </svg>
   </label>
   <div class="dropdown-content w-full rounded-box bg-base-200 shadow-inner max-h-96 overflow-auto">
-    <ul class="menu menu-dropdown" tabindex="0">
+    <ul class="menu menu-dropdown">
       @for (location of locations; track location.name) {
-        <app-location-button [class.hidden]="location.selected" [cityTimezone]="location" />
-      } @empty {
+        <app-location-button
+          [class.hidden]="location.selected"
+          [cityTimezone]="location"
+          (click)="clearInput()"
+        />
+      } 
+      @if (noResults()) {
         <li class="disabled">
           <button>No results found</button>
         </li>
