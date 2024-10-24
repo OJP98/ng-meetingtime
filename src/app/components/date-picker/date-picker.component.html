@@ -1,4 +1,4 @@
-<div class="flex flex-col flex-nowrap sm:flex-row sm:gap-2">
+<div class="flex flex-col flex-wrap sm:flex-row sm:gap-2">
   <!-- Day picker -->
   <app-select
     [control]="control"
@@ -31,4 +31,11 @@
     label="Year"
     class="grow"
   />
+
+  <div class="sm:basis-full mt-1 sm:mt-0">
+    <button 
+      class="btn btn-xs btn-ghost sm:mt-0 sm:mx-0"
+      (click)="setToday()"
+    >Set Today</button>
+  </div>
 </div>

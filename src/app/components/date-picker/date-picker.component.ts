@@ -16,6 +16,7 @@ export class DatePickerComponent implements OnInit {
   public monthFormControlName = 'month';
   public yearFormControlName = 'year';
   public daysSelectData: ISelectArrData[] = [];
+  public dataChanged = false;
 
   @Input() control!: FormGroup;
 
@@ -24,8 +25,8 @@ export class DatePickerComponent implements OnInit {
   ngOnInit(): void {
     this.daysSelectData = this.getAvailableDays();
     this.control.statusChanges.subscribe(() => {
-      this.setAvailableDays();
-      this.validateSelectedDay();
+      this.daysSelectData = this.getAvailableDays();
+      this.setDefaultIfNotFound();
     });
   }
 
@@ -37,10 +38,6 @@ export class DatePickerComponent implements OnInit {
     });
   }
 
-  setAvailableDays(): void {
-    this.daysSelectData = this.getAvailableDays();
-  }
-
   getAvailableDays(): ISelectArrData[] {
     const { month, year } = this.control.value;
     return this.dateSrvc.daysInMonthArray(month, year).map((day) => ({
@@ -49,9 +46,10 @@ export class DatePickerComponent implements OnInit {
     }));
   }
 
-  validateSelectedDay(): void {
+  setDefaultIfNotFound(): void {
     const { day, month, year } = this.control.value;
-    if (this.daysSelectData.findIndex((aDay) => aDay.key === day) === -1)
+    const dayIndex = this.daysSelectData.findIndex((aDay) => aDay.key === day);
+    if (dayIndex === -1)
       this.control.setValue({
         day: 1,
         month,
