@@ -50,4 +50,8 @@ export class LocationPickerComponent {
       input.value = '';
     }
   }
+
+  public scrollIntoView(el: HTMLElement): void {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }

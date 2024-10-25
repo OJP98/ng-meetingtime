@@ -1,6 +1,7 @@
 <div id="search" class="dropdown w-full">
   <label class="input input-bordered flex w-full items-center">
     <input
+      #searchInput
       id="search-input"
       tabindex="0"
       type="text"
@@ -8,6 +9,7 @@
       class="grow"
       (keyup)="setResults($event)"
       (focus)="setResults($event)"
+      (click)="scrollIntoView(searchInput)"
     />
     <svg viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 opacity-70">
       <path
