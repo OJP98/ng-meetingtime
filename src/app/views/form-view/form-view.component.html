@@ -12,8 +12,16 @@
 
   <!-- Location Picker -->
   <div class="flex-col md:col-span-3 md:row-span-2 md:row-start-4 md:w-4/5">
-    <p class="font-bold text-primary">Pick a location</p>
-    <app-location-picker />
+    <p class="font-bold text-primary">Select locations</p>
+    @defer {
+      <app-location-picker />
+    } @placeholder {
+      <input
+        type="text"
+        placeholder="loading..."
+        class="input input-bordered"
+      />
+    }
   </div>
 
   <!-- LocationsContainer -->
