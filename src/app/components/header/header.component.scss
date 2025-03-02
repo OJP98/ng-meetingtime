@@ -1,0 +1,39 @@
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  animation: changeHeader linear;
+  animation-timeline: scroll(y);
+}
+
+h1 {
+  position: relative;
+  animation: moveToHeader linear;
+  animation-timeline: scroll(y);
+}
+
+@keyframes moveToHeader {
+  0% {
+    font-size: 3rem;
+  }
+  100% {
+    font-size: 2rem;
+  }
+}
+
+@keyframes changeHeader {
+  from {
+    background: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid rgba(255, 255, 255, 0);
+  }
+  to {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}

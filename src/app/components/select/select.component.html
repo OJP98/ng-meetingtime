@@ -1,0 +1,19 @@
+<div [formGroup]="control">
+  <label>
+    @if (!!label) {
+      <div class="label">
+        <span class="label-text text-xs">{{ label }}</span>
+      </div>
+    }
+    <select
+      [formControlName]="controlName"
+      [ariaLabel]="ariaLabel"
+      [id]="id"
+      class="select select-bordered w-full"
+    >
+      @for (item of data; track item.key) {
+        <option [ngValue]="item.key">{{ item.value }}</option>
+      }
+    </select>
+  </label>
+</div>

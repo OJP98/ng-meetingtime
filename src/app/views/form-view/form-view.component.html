@@ -1,0 +1,32 @@
+<div class="grid-container">
+  <!-- Banner / Slogan -->
+  <div class="items-center md:col-span-5">
+    <p>What's the best time for a meeting? Let's find out! 🚀</p>
+  </div>
+
+  <!-- Date Picker -->
+  <div class="flex-col md:col-span-3 md:row-span-2 md:w-4/5">
+    <p class="font-bold text-primary">Select a date</p>
+    <app-date-picker [control]="dateControl" />
+  </div>
+
+  <!-- Location Picker -->
+  <div class="flex-col md:col-span-3 md:row-span-2 md:row-start-4 md:w-4/5">
+    <p class="font-bold text-primary">Select locations</p>
+    @defer {
+      <app-location-picker />
+    } @placeholder {
+      <input
+        type="text"
+        placeholder="loading..."
+        class="input input-bordered"
+      />
+    }
+  </div>
+
+  <!-- LocationsContainer -->
+  <div class="flex-col md:col-span-2 md:row-span-3">
+    <p class="font-bold text-primary">Selected Locations</p>
+    <app-locations-container />
+  </div>
+</div>
